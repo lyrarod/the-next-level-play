@@ -5,6 +5,9 @@ const CircleStyled = styled(motion.div)`
   position: absolute;
   border-radius: 50%;
   ${(props) => props}
+  ${(props) => props.theme.media.mobile} {
+    display: none;
+  }
 `;
 
 const ParalelogramStyled = styled(motion.div)`
@@ -12,6 +15,10 @@ const ParalelogramStyled = styled(motion.div)`
   /* clip-path: polygon(50% 0, 100% 0%, 100% 100%, 100% 100%); */
   border-radius: 30% 70% 67% 33% / 30% 30% 70% 70%;
   ${(props) => props}
+
+  ${(props) => props.theme.media.mobile} {
+    display: none;
+  }
 `;
 
 export const Circle = (props) => <CircleStyled {...props} />;

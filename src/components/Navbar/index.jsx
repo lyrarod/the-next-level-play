@@ -67,6 +67,23 @@ const Nav = styled.nav`
     h1 {
       letter-spacing: 2px;
     }
+    .rocket {
+      font-size: 3rem;
+    }
+  }
+
+  // NAVBAR MOBILE
+  ${(props) => props.theme.media.mobile} {
+    justify-content: center;
+    padding: 1rem 0;
+    /* background: tomato; */
+
+    .logo {
+      cursor: default;
+    }
+    ul {
+      display: none;
+    }
   }
 `;
 
@@ -87,7 +104,7 @@ const Navbar = () => {
           variants={fadeIn(-100, 100, 6, 2.5)}
           style={{ display: "flex" }}
         >
-          <ImRocket size={"3rem"} />
+          <ImRocket className="rocket" />
         </motion.div>
         <h1>Liracode</h1>
       </motion.div>

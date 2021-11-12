@@ -24,6 +24,9 @@ const theme = {
     _5: "#fff",
     _6: "#f5f5f5",
   },
+  media: {
+    mobile: "@media screen and (max-width: 768px)",
+  },
 };
 
 export default function App({ Component, pageProps }) {
