@@ -10,6 +10,9 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body{
+    background-color: #fff;
+    background-image: url("/assets/brushed-alum.png");
+    
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

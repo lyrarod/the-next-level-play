@@ -11,19 +11,17 @@ import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
 const Homepage = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
-  /* padding: 100px; */
+  /* height: 200vh; */
   overflow: hidden;
+  box-shadow: 0 0 20px #0003;
 `;
 
 const Container = styled.div`
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   padding: 0 100px;
-  background: ${(props) => props.theme.colors._5};
-  background-image: url("/assets/brushed-alum.png");
 
   ${(props) => props.theme.media.mobile} {
     padding: 0;
@@ -352,7 +350,6 @@ export default function Home() {
           top="10vh"
           right="5vh"
           background="linear-gradient(#855cad, #339999)"
-          // background-image='url("/assets/brushed-alum.png")'
           initial={"hidden"}
           animate={"visible"}
           variants={fadeIn(0, 0, 4, 2)}

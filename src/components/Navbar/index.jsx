@@ -6,16 +6,15 @@ import { fadeIn } from "../../animations";
 
 const Nav = styled.nav`
   position: fixed;
-  top: 0;
-  left: 0;
+  /* top: 0;
+  left: 0; */
   width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
   padding: 1rem 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* box-shadow: 0 2px 2px #0002; */
-  /* background: tomato; */
-  /* overflow: hidden; */
   z-index: 1000;
 
   ul {
