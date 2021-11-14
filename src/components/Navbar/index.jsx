@@ -6,10 +6,8 @@ import { fadeIn } from "../../animations";
 
 const Nav = styled.nav`
   position: fixed;
-  /* top: 0;
-  left: 0; */
   width: 100%;
-  max-width: 1920px;
+  max-width: ${({ theme: { maxWidth } }) => maxWidth};
   margin: 0 auto;
   padding: 1rem 100px;
   display: flex;
@@ -23,7 +21,6 @@ const Nav = styled.nav`
 
   li {
     list-style-type: none;
-    margin-left: 10px;
 
     a {
       font-size: 12px;
@@ -33,6 +30,7 @@ const Nav = styled.nav`
       font-weight: 900;
       letter-spacing: 4px;
       padding: 10px;
+      margin-left: 10px;
       transition: 0.2s;
 
       &:hover {
@@ -45,7 +43,6 @@ const Nav = styled.nav`
         color: ${(props) => props.theme.colors._6};
         background: ${(props) => props.theme.colors._4};
         border-radius: 4px;
-        /* padding-right: 0; */
         transition: 0.2s;
 
         &:hover {
@@ -75,7 +72,6 @@ const Nav = styled.nav`
   ${(props) => props.theme.media.mobile} {
     justify-content: center;
     padding: 1rem 0;
-    /* background: tomato; */
 
     .logo {
       cursor: default;
@@ -91,22 +87,25 @@ const Navbar = () => {
 
   return (
     <Nav>
-      <motion.div
-        className="logo"
-        initial={"hidden"}
-        animate={"visible"}
-        variants={fadeIn(0, 0, 2)}
-      >
+      <div className="logo">
         <motion.div
           initial={"hidden"}
           animate={"visible"}
           variants={fadeIn(-100, 100, 6, 2.5)}
           style={{ display: "flex" }}
+          whileHover={{ scale: [1, 1.08, 1] }}
+          whileTap={{ scale: [1, 1.2, 1] }}
         >
           <ImRocket className="rocket" />
         </motion.div>
-        <h1>Liracode</h1>
-      </motion.div>
+        <motion.h1
+          initial={"hidden"}
+          animate={"visible"}
+          variants={fadeIn(0, 0, 8.5)}
+        >
+          Liracode
+        </motion.h1>
+      </div>
 
       <ul>
         {menus.map((menu, i) => {
@@ -119,7 +118,7 @@ const Navbar = () => {
               key={i}
               initial={"hidden"}
               animate={"visible"}
-              variants={fadeIn(0, 50, 2 + delay)}
+              variants={fadeIn(0, 60, 2 + delay)}
             >
               <Link href={link} passHref>
                 <a>{menu}</a>

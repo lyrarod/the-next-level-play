@@ -1,20 +1,19 @@
-import Footer from "../Footer";
 import Navbar from "../Navbar";
+import styled from "styled-components";
+
+const ContainerLayout = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: ${({ theme: { maxWidth } }) => maxWidth};
+  margin: 0 auto;
+`;
 
 const Layout = ({ children }) => {
   return (
-    <div
-      style={{
-        position: "relative",
-        width: "100%",
-        maxWidth: "1920px",
-        margin: "0 auto",
-      }}
-    >
+    <ContainerLayout>
       <Navbar />
       {children}
-      {/* <Footer /> */}
-    </div>
+    </ContainerLayout>
   );
 };
 

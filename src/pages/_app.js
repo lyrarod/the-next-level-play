@@ -29,6 +29,7 @@ const theme = {
   media: {
     mobile: "@media screen and (max-width: 768px)",
   },
+  maxWidth: `${1920}px`,
 };
 
 export default function App({ Component, pageProps }) {

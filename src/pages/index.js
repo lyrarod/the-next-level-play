@@ -26,7 +26,6 @@ const Container = styled.div`
   ${(props) => props.theme.media.mobile} {
     padding: 0;
     flex-direction: column;
-    /* background: cyan; */
   }
 `;
 
@@ -41,18 +40,14 @@ const CardLeft = styled(motion.div)`
 
   .content {
     width: 100%;
-    /* background-color: tomato; */
 
     p {
       font-size: 5rem;
       line-height: 0.85;
       letter-spacing: 12px;
       font-weight: 900;
-      /* text-shadow: 2px 2px 2px #663399; */
     }
-    .the {
-      /* font-style: oblique; */
-    }
+
     .next {
       font-size: 12rem;
       text-transform: uppercase;
@@ -69,9 +64,7 @@ const CardLeft = styled(motion.div)`
     .btns {
       display: flex;
       align-items: center;
-      /* justify-content: space-between; */
       margin-top: 3rem;
-      /* padding: 0 4px; */
 
       button {
         border: 2px solid #339999;
@@ -172,7 +165,6 @@ const CardRight = styled(motion.div)`
   width: 50%;
   height: 100%;
   display: flex;
-  /* background-color: tomato; */
 
   // MOBILE DEVICE CARDRIGHT
   ${(props) => props.theme.media.mobile} {
@@ -205,7 +197,6 @@ const SocialIcons = styled.ul`
 
     &:hover {
       transform: scale(1.1);
-      /* box-shadow: 2px 2px 3px #0005; */
     }
   }
 
@@ -340,20 +331,8 @@ export default function Home() {
         <Circle
           initial={"hidden"}
           animate={"visible"}
-          variants={fadeIn(0, 0, 4.3)}
+          variants={fadeIn(0, 0, 4)}
         />
-
-        {/* <Paralelogram
-          width="100vh"
-          height="85vh"
-          top="10vh"
-          right="5vh"
-          background="linear-gradient(#855cad, #339999)"
-          initial={"hidden"}
-          animate={"visible"}
-          variants={fadeIn(0, 0, 4, 2)}
-          box-shadow="0 12px 12px #0005"
-        /> */}
       </Container>
     </Homepage>
   );
