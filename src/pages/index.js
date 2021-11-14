@@ -172,7 +172,7 @@ const CardRight = styled(motion.div)`
   width: 50%;
   height: 100%;
   display: flex;
-  z-index: 100;
+  /* background-color: tomato; */
 
   // MOBILE DEVICE CARDRIGHT
   ${(props) => props.theme.media.mobile} {
@@ -329,22 +329,21 @@ export default function Home() {
             priority
             className="devImg"
           />
+
+          <Paralelogram
+            initial={"hidden"}
+            animate={"visible"}
+            variants={fadeIn(0, 0, 4)}
+          />
         </CardRight>
 
         <Circle
-          width="50vh"
-          height="50vh"
-          bottom="-25vh"
-          left="-25vh"
-          background="#663399"
-          background-image='url("/assets/brushed-alum.png")'
           initial={"hidden"}
           animate={"visible"}
-          variants={fadeIn(0, 0, 4, 2)}
-          box-shadow="10px -10px 20px #0005"
+          variants={fadeIn(0, 0, 4.3)}
         />
 
-        <Paralelogram
+        {/* <Paralelogram
           width="100vh"
           height="85vh"
           top="10vh"
@@ -354,7 +353,7 @@ export default function Home() {
           animate={"visible"}
           variants={fadeIn(0, 0, 4, 2)}
           box-shadow="0 12px 12px #0005"
-        />
+        /> */}
       </Container>
     </Homepage>
   );

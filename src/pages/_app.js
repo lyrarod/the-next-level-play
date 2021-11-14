@@ -2,7 +2,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Layout from "../components/Layout";
 
 const GlobalStyle = createGlobalStyle`
-  *, ::before, ::after {
+  *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -11,8 +11,7 @@ const GlobalStyle = createGlobalStyle`
   
   body{
     background-color: #fff;
-    background-image: url("/assets/brushed-alum.png");
-    
+    background-image: url("/assets/brushed-alum.png");    
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
