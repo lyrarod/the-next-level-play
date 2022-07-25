@@ -237,8 +237,9 @@ export default function Home() {
   return (
     <Homepage>
       <Head>
-        <title>Liracode | The Next Level Play</title>
+        <title>Lyrarod | The Next Level Play</title>
       </Head>
+
       <Container>
         <CardLeft>
           <div className="content">
