@@ -61,10 +61,11 @@ const Nav = styled.nav`
     color: ${(props) => props.theme.colors._2};
 
     h1 {
-      letter-spacing: 2px;
+      letter-spacing: 1px;
     }
     .rocket {
       font-size: 3rem;
+      color: ${(props) => props.theme.colors._4};
     }
   }
 
@@ -103,7 +104,7 @@ const Navbar = () => {
           animate={"visible"}
           variants={fadeIn(0, 0, 8.5)}
         >
-          Liracode
+          lyrarod
         </motion.h1>
       </div>
 
