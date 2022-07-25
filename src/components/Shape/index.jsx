@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-const CircleStyled = styled(motion.div)`
+export const Circle = styled(motion.div)`
   position: absolute;
   border-radius: 50%;
 
@@ -21,7 +21,7 @@ const CircleStyled = styled(motion.div)`
   }
 `;
 
-const ParalelogramStyled = styled(motion.div)`
+export const Paralelogram = styled(motion.div)`
   position: absolute;
   /* clip-path: polygon(50% 0, 100% 0%, 100% 100%, 100% 100%); */
   border-radius: 30% 70% 67% 33% / 30% 30% 70% 70%;
@@ -40,7 +40,3 @@ const ParalelogramStyled = styled(motion.div)`
     display: none;
   }
 `;
-
-export const Circle = (props) => <CircleStyled {...props} />;
-
-export const Paralelogram = (props) => <ParalelogramStyled {...props} />;
