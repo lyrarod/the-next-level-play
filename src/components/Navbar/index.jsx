@@ -6,14 +6,16 @@ import { fadeIn } from "../../animations";
 
 const Nav = styled.nav`
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  max-width: ${({ theme: { maxWidth } }) => maxWidth};
-  margin: 0 auto;
-  padding: 1rem 100px;
+  height: 100px;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1000;
+  z-index: 999;
 
   ul {
     display: flex;
@@ -58,28 +60,59 @@ const Nav = styled.nav`
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: ${(props) => props.theme.colors._2};
+    color: ${(props) => props.theme.colors._1};
 
     h1 {
       letter-spacing: 1px;
     }
+
     .rocket {
       font-size: 3rem;
-      color: ${(props) => props.theme.colors._4};
     }
   }
 
   // NAVBAR MOBILE
-  ${(props) => props.theme.media.mobile} {
-    justify-content: center;
-    padding: 1rem 0;
+  ${({ theme }) => theme.media.mobile} {
+    position: initial;
+    padding: 0;
+    height: 60px;
 
     .logo {
       cursor: default;
+
+      h1 {
+        font-size: 1.25rem;
+        letter-spacing: normal;
+      }
+
+      .rocket {
+        font-size: 2rem;
+      }
     }
+
     ul {
       display: none;
     }
+  }
+
+  ${({ theme }) => theme.media.min1920px} {
+    height: 200px;
+  }
+`;
+
+const ContainerNav = styled.div`
+  width: 100%;
+  max-width: ${({ theme }) => theme.maxWidth};
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+
+  // ContainerNav Mobile
+  ${({ theme }) => theme.media.mobile} {
+    padding: 0;
+    justify-content: center;
   }
 `;
 
@@ -88,46 +121,46 @@ const Navbar = () => {
 
   return (
     <Nav>
-      <div className="logo">
-        <motion.div
-          initial={"hidden"}
-          animate={"visible"}
-          variants={fadeIn(-100, 100, 6, 2.5)}
-          style={{ display: "flex" }}
-          whileHover={{ scale: [1, 1.08, 1] }}
-          whileTap={{ scale: [1, 1.2, 1] }}
-        >
-          <ImRocket className="rocket" />
-        </motion.div>
-        <motion.h1
-          initial={"hidden"}
-          animate={"visible"}
-          variants={fadeIn(0, 0, 8.5)}
-        >
-          lyrarod
-        </motion.h1>
-      </div>
+      <ContainerNav>
+        <div className="logo">
+          <motion.div
+            initial={"hidden"}
+            animate={"visible"}
+            variants={fadeIn(-100, 100, 6, 2.5)}
+            style={{ display: "flex" }}
+            whileHover={{ scale: [1, 1.08, 1] }}
+            whileTap={{ scale: [1, 1.2, 1] }}
+          >
+            <ImRocket className="rocket" />
+          </motion.div>
+          <motion.h1
+            initial={"hidden"}
+            animate={"visible"}
+            variants={fadeIn(0, 0, 8.5)}
+          >
+            lyrarod
+          </motion.h1>
+        </div>
 
-      <ul>
-        {menus.map((menu, i) => {
-          // const link = menu === "home" ? "/" : `/${menu}`;
-          const link = "/";
-          const delay = i * 0.2;
+        <ul>
+          {menus.map((menu, i) => {
+            const delay = i * 0.2;
 
-          return (
-            <motion.li
-              key={i}
-              initial={"hidden"}
-              animate={"visible"}
-              variants={fadeIn(0, 60, 2 + delay)}
-            >
-              <Link href={link} passHref>
-                <a>{menu}</a>
-              </Link>
-            </motion.li>
-          );
-        })}
-      </ul>
+            return (
+              <motion.li
+                key={i}
+                initial={"hidden"}
+                animate={"visible"}
+                variants={fadeIn(0, 60, 2 + delay)}
+              >
+                <Link href={"/"}>
+                  <a>{menu}</a>
+                </Link>
+              </motion.li>
+            );
+          })}
+        </ul>
+      </ContainerNav>
     </Nav>
   );
 };

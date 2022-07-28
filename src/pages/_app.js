@@ -1,5 +1,5 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import Layout from "../components/Layout";
+import Navbar from "../components/Navbar";
 
 const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
@@ -28,8 +28,9 @@ const theme = {
   },
   media: {
     mobile: "@media screen and (max-width: 768px)",
+    min1920px: "@media screen and (min-width: 1921px)",
   },
-  maxWidth: `${1920}px`,
+  maxWidth: `${1440}px`,
 };
 
 export default function App({ Component, pageProps }) {
@@ -37,9 +38,8 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Navbar />
+        <Component {...pageProps} />
       </ThemeProvider>
     </>
   );

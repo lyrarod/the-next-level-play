@@ -3,40 +3,44 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import { motion } from "framer-motion";
-import devImg from "../../public/assets/dev.svg";
 import { Circle, Paralelogram } from "../components/Shape";
 import { fadeIn } from "../animations";
 import { FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa";
 
-const Homepage = styled.div`
+const Homepage = styled.section`
   position: relative;
-  width: 100%;
-  /* height: 200vh; */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
   overflow: hidden;
-  box-shadow: 0 0 20px #0003;
+
+  ${({ theme }) => theme.media.mobile} {
+    height: 100%;
+  }
 `;
 
 const Container = styled.div`
-  position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  max-width: ${({ theme }) => theme.maxWidth};
+  margin: 0 auto;
   display: flex;
-  padding: 0 100px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
 
-  ${(props) => props.theme.media.mobile} {
+  ${({ theme }) => theme.media.mobile} {
     padding: 0;
+    height: 100%;
     flex-direction: column;
   }
 `;
 
 const CardLeft = styled(motion.div)`
   width: 50%;
-  height: 100%;
-  position: relative;
   display: flex;
-  align-items: center;
+  position: relative;
   color: ${({ theme }) => theme.colors._1};
-  padding-left: 3rem;
 
   .content {
     width: 100%;
@@ -49,7 +53,7 @@ const CardLeft = styled(motion.div)`
     }
 
     .next {
-      font-size: 12rem;
+      font-size: 10rem;
       text-transform: uppercase;
       background-image: linear-gradient(90deg, #663399, #339999);
       -webkit-background-clip: text;
@@ -59,22 +63,22 @@ const CardLeft = styled(motion.div)`
     }
     .lvlplay {
       font-style: oblique;
-      letter-spacing: 15px;
+      letter-spacing: 5px;
     }
     .btns {
       display: flex;
       align-items: center;
-      margin-top: 3rem;
+      margin-top: 2rem;
 
       button {
         border: 2px solid #339999;
         color: #339999; //#2d3142
-        width: 340px;
-        padding: 8px;
+        width: 240px;
+        padding: 6px;
         font-weight: 500;
         text-transform: uppercase;
-        letter-spacing: 6px;
-        border-radius: 4px;
+        letter-spacing: 4px;
+        border-radius: 2px;
         background: transparent;
         transition: 0.2s;
 
@@ -96,15 +100,16 @@ const CardLeft = styled(motion.div)`
   ${(props) => props.theme.media.mobile} {
     position: relative;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-left: 0;
-    padding-top: 22%;
+    margin-top: 2rem;
 
     .content {
       width: 100%;
+      height: 100%;
       display: grid;
       place-content: center;
 
@@ -128,7 +133,6 @@ const CardLeft = styled(motion.div)`
       }
       .btns {
         flex-direction: column;
-        margin-top: 1rem;
 
         button {
           border: 1px solid #339999;
@@ -153,7 +157,7 @@ const CardLeft = styled(motion.div)`
           color: ${(props) => props.theme.colors._5};
           background: ${(props) => props.theme.colors._4};
           margin-right: 0;
-          margin-bottom: 12px;
+          margin-bottom: 1rem;
         }
       }
     }
@@ -162,22 +166,24 @@ const CardLeft = styled(motion.div)`
 
 const CardRight = styled(motion.div)`
   position: relative;
-  width: 50%;
+  width: 100%;
   height: 100%;
   display: flex;
+  align-items: center;
+  justify-content: end;
 
   // MOBILE DEVICE CARDRIGHT
-  ${(props) => props.theme.media.mobile} {
-    width: 100%;
-    height: max-content;
-    z-index: 0;
+  ${({ theme }) => theme.media.mobile} {
+    width: 96%;
+    margin-top: -80px;
+    justify-content: center;
   }
 `;
 
 const SocialIcons = styled.ul`
   position: absolute;
   top: 50%;
-  left: -3rem;
+  left: -4rem;
   transform: translateY(-50%);
 
   li {
@@ -235,106 +241,108 @@ const SocialIcons = styled.ul`
 
 export default function Home() {
   return (
-    <Homepage>
+    <>
       <Head>
         <title>Lyrarod | The Next Level Play</title>
       </Head>
 
-      <Container>
-        <CardLeft>
-          <div className="content">
-            <motion.p
-              className="the"
-              initial={"hidden"}
-              animate={"visible"}
-              variants={fadeIn(0, 100, 0)}
-            >
-              The
-            </motion.p>
-            <motion.p
-              className="next"
-              initial={"hidden"}
-              animate={"visible"}
-              variants={fadeIn(0, 100, 0.2)}
-            >
-              Next
-            </motion.p>
-            <motion.p
-              className="lvlplay"
-              initial={"hidden"}
-              animate={"visible"}
-              variants={fadeIn(0, 100, 0.4)}
-            >
-              Level Play
-            </motion.p>
-            <div className="btns">
-              <motion.button
+      <Homepage>
+        <Container>
+          <CardLeft>
+            <div className="content">
+              <motion.p
+                className="the"
                 initial={"hidden"}
                 animate={"visible"}
-                variants={fadeIn(0, 100, 0.6)}
-                className="btn"
+                variants={fadeIn(0, 100, 0)}
               >
-                Get Started
-              </motion.button>
-              <motion.button
+                The
+              </motion.p>
+              <motion.p
+                className="next"
                 initial={"hidden"}
                 animate={"visible"}
-                variants={fadeIn(0, 100, 0.8)}
+                variants={fadeIn(0, 100, 0.2)}
               >
-                Read more
-              </motion.button>
+                Next
+              </motion.p>
+              <motion.p
+                className="lvlplay"
+                initial={"hidden"}
+                animate={"visible"}
+                variants={fadeIn(0, 100, 0.4)}
+              >
+                Level Play
+              </motion.p>
+              <div className="btns">
+                <motion.button
+                  initial={"hidden"}
+                  animate={"visible"}
+                  variants={fadeIn(0, 100, 0.6)}
+                  className="btn"
+                >
+                  Get Started
+                </motion.button>
+                <motion.button
+                  initial={"hidden"}
+                  animate={"visible"}
+                  variants={fadeIn(0, 100, 0.8)}
+                >
+                  Read more
+                </motion.button>
+              </div>
             </div>
-          </div>
 
-          <SocialIcons>
-            <motion.li
-              initial={"hidden"}
-              animate={"visible"}
-              variants={fadeIn(0, 100, 2)}
-            >
-              <FaFacebookF />
-            </motion.li>
-            <motion.li
-              initial={"hidden"}
-              animate={"visible"}
-              variants={fadeIn(0, 100, 2 + 0.2)}
-            >
-              <FaTwitter />
-            </motion.li>
-            <motion.li
-              initial={"hidden"}
-              animate={"visible"}
-              variants={fadeIn(0, 100, 2 + 0.4)}
-            >
-              <FaInstagram />
-            </motion.li>
-          </SocialIcons>
-        </CardLeft>
-        <CardRight
-          initial={"hidden"}
-          animate={"visible"}
-          variants={fadeIn(140, 0, 2, 2)}
-        >
-          <Image
-            src={devImg}
-            alt="Development Image"
-            priority
-            className="devImg"
-          />
+            <SocialIcons>
+              <motion.li
+                initial={"hidden"}
+                animate={"visible"}
+                variants={fadeIn(0, 100, 2)}
+              >
+                <FaFacebookF />
+              </motion.li>
+              <motion.li
+                initial={"hidden"}
+                animate={"visible"}
+                variants={fadeIn(0, 100, 2 + 0.2)}
+              >
+                <FaTwitter />
+              </motion.li>
+              <motion.li
+                initial={"hidden"}
+                animate={"visible"}
+                variants={fadeIn(0, 100, 2 + 0.4)}
+              >
+                <FaInstagram />
+              </motion.li>
+            </SocialIcons>
+          </CardLeft>
 
-          <Paralelogram
+          <CardRight
             initial={"hidden"}
             animate={"visible"}
-            variants={fadeIn(0, 0, 4)}
-          />
-        </CardRight>
+            variants={fadeIn(140, 0, 2, 2)}
+          >
+            <Image
+              src="/assets/dev.svg"
+              alt="Development Image"
+              width={700}
+              height={700}
+            />
 
+            <Paralelogram
+              initial={"hidden"}
+              animate={"visible"}
+              variants={fadeIn(0, 0, 4)}
+            />
+          </CardRight>
+        </Container>
         <Circle
           initial={"hidden"}
           animate={"visible"}
           variants={fadeIn(0, 0, 4)}
         />
-      </Container>
-    </Homepage>
+      </Homepage>
+    </>
   );
 }
