@@ -63,7 +63,8 @@ const Nav = styled.nav`
     color: ${(props) => props.theme.colors._1};
 
     h1 {
-      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 900;
     }
 
     .rocket {
@@ -138,7 +139,7 @@ const Navbar = () => {
             animate={"visible"}
             variants={fadeIn(0, 0, 8.5)}
           >
-            lyrarod
+            Chappo
           </motion.h1>
         </div>
 

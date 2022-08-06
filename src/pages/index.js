@@ -243,7 +243,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Lyrarod | The Next Level Play</title>
+        <title>The Next Level Play | Chappo</title>
       </Head>
 
       <Homepage>
