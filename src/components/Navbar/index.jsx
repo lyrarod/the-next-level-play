@@ -63,12 +63,14 @@ const Nav = styled.nav`
     color: ${(props) => props.theme.colors._1};
 
     h1 {
-      text-transform: uppercase;
       font-weight: 900;
+      text-transform: uppercase;
+      color: ${(props) => props.theme.colors._2};
     }
 
     .rocket {
       font-size: 3rem;
+      color: ${(props) => props.theme.colors._4};
     }
   }
 
