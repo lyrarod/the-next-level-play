@@ -84,8 +84,8 @@ const Nav = styled.nav`
       cursor: default;
 
       h1 {
+        font-weight: 700;
         font-size: 1.25rem;
-        letter-spacing: normal;
       }
 
       .rocket {
