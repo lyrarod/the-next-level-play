@@ -141,7 +141,7 @@ const Navbar = () => {
             animate={"visible"}
             variants={fadeIn(0, 0, 8.5)}
           >
-            Chappo
+            Logo
           </motion.h1>
         </div>
 
